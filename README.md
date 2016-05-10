@@ -32,7 +32,7 @@ Plot coverage distributions in R to determine coverage peak and whether there is
 
 _Good sample_
 
-![SL468_coverage.jpeg]({{site.baseurl}}/SL468_coverage.jpeg)
+![SL468_coverage.jpeg](SL468_coverage.jpeg)
 
 One single peak around 65x.
 
