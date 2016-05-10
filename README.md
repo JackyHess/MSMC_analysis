@@ -47,6 +47,11 @@ Make mappability mask (according to http://lh3lh3.users.sourceforge.net/snpable.
 
 Choose a kmer number to reflect the library type you are using for alignment. For paired-ed libraries this is a bit tricky, since this was conceptualised for single end libraries, but since my libraries are narrow 100bp PE libraries, I chose 250 which is on the liberal end.
 
+`bwa index final.assembly.fasta`
+
+`cat xa* > simu_reads.fq`
+
+`bwa aln -R 1000000 -O 3 -E 3 ../Abrun_final.assembly.fasta simu_reads.fq > simu_reads.sai`
 
 
 
