@@ -1,5 +1,5 @@
 # MSMC_analysis
-Scripts to run MSMC on genomes with large numbers of scaffolds
+Scripts to run MSMC on genomes with large numbers of scaffolds using a SLURM cluster
 
 ## Input requirements
 
@@ -40,11 +40,6 @@ One single peak around 65x.
 
 ### Prepare MSMC input files
 
-Generate single sample VCF and mask files from .bam
-
-
-
-
 Make mappability mask (according to http://lh3lh3.users.sourceforge.net/snpable.shtml)
 
 `splitfa final.assembly.fasta 100 | split -l 20000000`
@@ -66,6 +61,11 @@ Choose a kmer number to reflect the library type you are using for alignment. Fo
 Change the input and output paths to match the map file just generated in the script "makeMappabilityMask.py" shipped with msmc-tools and run.
 
 `/usit/abel/u1/jacqueh/Software/msmc-tools/makeMappabilityMask.py`
+
+Generate input files from .bam, genome index, mappability info and estimated coverage.
+
+Copy shell script [prepare_MSMC_input.sh](prepare_MSMC_input.sh) and edit file names, coverage info and the locations of the python scripts to reflect your setup and run.
+
 
 
 
