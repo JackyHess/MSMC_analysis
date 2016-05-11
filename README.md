@@ -28,6 +28,8 @@ Get coverage distribution of aligned sample
 
 `bedtools genomecov -ibam alignment_sorted.bam -g final.assembly.genome > <sample_id>.genomecov_summary`
 
+`grep "genome" <sample_id>.genomecov_summary > <sample_id>_genomeonly.genomecov_summary`
+
 Plot coverage distributions in R to determine coverage peak and whether there is any indication of heterozygous regions included in the assembly. 
 
 _Good sample_
@@ -41,9 +43,11 @@ One single peak around 65x.
 Generate single sample VCF and mask files from .bam
 
 
+
+
 Make mappability mask (according to http://lh3lh3.users.sourceforge.net/snpable.shtml)
 
-`splitfa final.assembly.fasta 250 | split -l 20000000`
+`splitfa final.assembly.fasta 100 | split -l 20000000`
 
 Choose a kmer number to reflect the library type you are using for alignment. For paired-ed libraries this is a bit tricky, since this was conceptualised for single end libraries, but since my libraries are narrow 100bp PE libraries, I chose 250 which is on the liberal end.
 
@@ -53,21 +57,11 @@ Choose a kmer number to reflect the library type you are using for alignment. Fo
 
 `bwa aln -R 1000000 -O 3 -E 3 ../Abrun_final.assembly.fasta simu_reads.fq > simu_reads.sai`
 
+`bwa samse -f simu_reads.sam ../Abrun_final.assembly.fasta simu_reads.sai simu_reads.fq`
 
+`gen_raw_mask.pl > rawMask_100.fa`
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+`gen_mask -l 100 -r 0.5 rawMask_100.fa > mask_100_50.fa`
 
 
 
