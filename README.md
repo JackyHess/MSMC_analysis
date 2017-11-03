@@ -58,15 +58,10 @@ Choose a kmer number to reflect the library type you are using for alignment. Fo
 
 `gen_mask -l 100 -r 0.5 rawMask_100.fa > mask_100_50.fa`
 
-Change the input and output paths to match the map file just generated in the script "makeMappabilityMask.py" shipped with msmc-tools and run.
+Change the input and output paths to match the map file just generated in the script "makeMappabilityMask.py" shipped with msmc-tools ([https://github.com/stschiff/msmc-tools](https://github.com/stschiff/msmc-tools)) and run.
 
-`/usit/abel/u1/jacqueh/Software/msmc-tools/makeMappabilityMask.py`
+`./makeMappabilityMask.py`
 
 Generate input files from .bam, genome index, mappability info and estimated coverage.
 
 Copy shell script [prepare_MSMC_input.sh](prepare_MSMC_input.sh) and edit file names, coverage info and the locations of the python scripts to reflect your setup and run.
-
-
-
-
-
